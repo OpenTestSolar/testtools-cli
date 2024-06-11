@@ -1,5 +1,4 @@
 import typer
-from typing import Literal
 from rich.traceback import install
 from typing_extensions import Annotated
 
