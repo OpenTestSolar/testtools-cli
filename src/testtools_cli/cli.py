@@ -4,7 +4,7 @@ import typer
 from rich.traceback import install
 from typing_extensions import Annotated
 
-from .generator.ScaffoldGenerator import ScaffoldGenerator, LangType
+from .generator.scaffold_generator import ScaffoldGenerator, LangType
 
 install(show_locals=True)
 
