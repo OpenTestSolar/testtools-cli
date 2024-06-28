@@ -1,5 +1,8 @@
 import os
 from enum import Enum
+from pathlib import Path
+
+from .python_generator import PythonGenerator
 
 
 class LangType(str, Enum):
@@ -16,4 +19,9 @@ class ScaffoldGenerator:
         self.workdir = workdir or os.getcwd()
 
     def generate(self) -> None:
-        pass
+        if self.lang == LangType.Python:
+            gen = PythonGenerator(
+                tool_name=self.testtool_name,
+                workdir=Path(self.workdir) if self.workdir else None,
+            )
+            gen.generate_scaffold()

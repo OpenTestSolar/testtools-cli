@@ -15,9 +15,7 @@ from testsolar_testtool_sdk.model.testresult import (
 from testsolar_testtool_sdk.reporter import Reporter
 
 
-def run_testcases(
-        entry: EntryParam, pipe_io: Optional[BinaryIO] = None
-) -> None:
+def run_testcases(entry: EntryParam, pipe_io: Optional[BinaryIO] = None) -> None:
     reporter = Reporter(pipe_io)
 
     logger.info(f"running testcase in workdir [{entry.ProjectPath}]")
@@ -41,13 +39,11 @@ def run_single_case(case: TestCase, reporter: Reporter) -> None:
     reporter.report_case_result(tr)
 
     sleep(5)
-    step_logs: List[TestCaseLog] = [TestCaseLog(
-        Time=datetime.now(), Level=LogLevel.INFO, Content="Test Output"
-    )]
+    step_logs: List[TestCaseLog] = [
+        TestCaseLog(Time=datetime.now(), Level=LogLevel.INFO, Content="Test Output")
+    ]
 
-    logger.info(
-        f"Finished running case {case.Name}"
-    )
+    logger.info(f"Finished running case {case.Name}")
 
     tr_result: ResultType = ResultType.SUCCEED
     tr.ResultType = tr_result

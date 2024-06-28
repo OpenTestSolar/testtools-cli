@@ -6,9 +6,7 @@ from testsolar_testtool_sdk.model.testresult import ResultType, LogLevel
 
 from src.run import run_testcases_from_args
 
-testdata_dir: str = str(
-    Path(__file__).parent.absolute().joinpath("testdata")
-)
+testdata_dir: str = str(Path(__file__).parent.absolute().joinpath("testdata"))
 
 
 def test_run_testcases_from_args():

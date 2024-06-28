@@ -13,12 +13,12 @@ app = typer.Typer(rich_markup_mode="markdown")
 
 @app.command()
 def init(
-        workdir: Annotated[
-            Optional[str],
-            typer.Argument(
-                help="Where you want the scaffolding code to be stored, defaulting to the current directory"
-            ),
-        ] = None,
+    workdir: Annotated[
+        Optional[str],
+        typer.Argument(
+            help="Where you want the scaffolding code to be stored, defaulting to the current directory"
+        ),
+    ] = None,
 ) -> None:
     """
     **Init** a testsolar testtool with guide
@@ -35,7 +35,9 @@ def init(
     """
     tool_name = typer.prompt("Name of the test tool?")
     pre_langs = "/".join([e.value for e in LangType])
-    lang = LangType(typer.prompt(f"The language you want to use for development({pre_langs})?"))
+    lang = LangType(
+        typer.prompt(f"The language you want to use for development({pre_langs})?")
+    )
 
     gen = ScaffoldGenerator(lang=lang, testtool_name=tool_name, workdir=workdir)
     gen.generate()

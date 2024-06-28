@@ -15,18 +15,4 @@ def parse_testcase(workdir: Path, test_selectors: List[str]) -> List[TestCase]:
     """
 
     logger.debug(f"parsing workdir [{workdir}], test_selectors={test_selectors}")
-    return [
-        TestCase(
-            Name="a/b/c?d"
-        )
-    ]
-
-
-
-
-
-
-
-
-
-
+    return [TestCase(Name="a/b/c?d")]
