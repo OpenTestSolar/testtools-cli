@@ -35,11 +35,14 @@ class ScaffoldGenerator:
 
         for dirpath, dirnames, filenames in os.walk(scaffold_dir):
             # 计算模板文件的相对目录
+            dirnames[:] = [d for d in dirnames if not d.startswith('.')]
             relative_dir = os.path.relpath(dirpath, scaffold_dir)
 
             # dirnames是目录，不用管
             # 仅处理当前目录下的filenames即可
             for filename in filenames:
+                if filename.endswith(".pyc"):
+                    continue
                 relative_file = Path(relative_dir) / filename
 
                 path_template = self.native_env.from_string(str(relative_file))
