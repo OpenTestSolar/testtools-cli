@@ -8,4 +8,4 @@ echo "${TOOL_ROOT}"
 echo "${TESTSOLAR_WORKSPACE}"
 
 /usr/local/bin/testtools_sdk version
-/usr/local/bin/testtools_sdk serve --tool {% name %}
+/usr/local/bin/testtools_sdk serve --tool {{name}}
