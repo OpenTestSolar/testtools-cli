@@ -17,7 +17,7 @@ def collect_testcases(
         LoadErrors=[],
     )
 
-    time.sleep(5)
+    time.sleep(1)
 
     load_result.Tests.append(TestCase(Name="a/b/c?d"))
     load_result.LoadErrors.append(
