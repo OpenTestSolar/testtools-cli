@@ -1,10 +1,12 @@
+import logging
 import os
 from enum import Enum
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 from jinja2.nativetypes import NativeEnvironment
-from loguru import logger
+
+log = logging.getLogger("rich")
 
 
 class LangType(str, Enum):
@@ -30,7 +32,6 @@ class ScaffoldGenerator:
         env = Environment(loader=FileSystemLoader(scaffold_dir))
 
         for dirpath, dirnames, filenames in os.walk(scaffold_dir):
-
             # 计算模板文件的相对目录
             relative_dir = os.path.relpath(dirpath, scaffold_dir)
 
@@ -44,10 +45,12 @@ class ScaffoldGenerator:
 
                 Path(dest_path).parent.mkdir(parents=True, exist_ok=True)
 
-                logger.info(f"Generating scaffold file [{dest_path}]")
+                log.info(f"Generating scaffold file [{dest_path}]")
                 with open(dest_path, "w", encoding="utf-8") as file_out:
-                    logger.debug(f"  From template file [{relative_file}]")
-                    logger.debug(f"  Into dest file [{dest_path}]")
+                    log.debug(f"  From template file [{relative_file}]")
+                    log.debug(f"  Into dest file [{dest_path}]")
                     template = env.get_template(str(relative_file))
                     content = template.render(name=self.testtool_name)
                     file_out.write(content)
+
+        logging.info(f"✅ Generated {language_name} scaffold done.")

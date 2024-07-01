@@ -1,6 +1,9 @@
+import logging
+import sys
 from typing import Optional
 
 import typer
+from rich.logging import RichHandler
 from rich.traceback import install
 from typing_extensions import Annotated
 
@@ -8,17 +11,25 @@ from .generator.scaffold_generator import ScaffoldGenerator, LangType
 
 install(show_locals=True)
 
+FORMAT = "%(message)s"
+logging.basicConfig(
+    level="NOTSET", format=FORMAT, datefmt="[%X]", handlers=[RichHandler()]
+)
+
 app = typer.Typer(rich_markup_mode="markdown")
+
+log = logging.getLogger("rich")
 
 
 @app.command()
 def init(
-    workdir: Annotated[
-        Optional[str],
-        typer.Argument(
-            help="Where you want the scaffolding code to be stored, defaulting to the current directory"
-        ),
-    ] = None,
+        workdir: Annotated[
+            Optional[str],
+            typer.Argument(
+                help="Where you want the scaffolding code to be stored, defaulting to the current directory"
+            ),
+        ] = None,
+        verbose: Annotated[Optional[bool], typer.Argument(help="Verbose output")] = False,
 ) -> None:
     """
     **Init** a testsolar testtool with guide
@@ -33,6 +44,9 @@ def init(
 
     - java
     """
+    if not verbose:
+        log.setLevel(logging.INFO)
+
     tool_name = typer.prompt("Name of the test tool?")
     pre_langs = "/".join([e.value for e in LangType])
     lang = LangType(
