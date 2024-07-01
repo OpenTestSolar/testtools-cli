@@ -678,7 +678,7 @@ files = [
 
 [[package]]
 name = "solar-registry"
-version = "0.3.17"
+version = "0.3.18"
 requires_python = ">=3.11"
 summary = "Generate and merge meta data for testsolar test tools"
 groups = ["default"]
@@ -692,8 +692,8 @@ dependencies = [
     "typer>=0.12.3",
 ]
 files = [
-    {file = "solar_registry-0.3.17-py3-none-any.whl", hash = "sha256:f4cffc2516806fae87c1162dbd87cca4cdb39d88a05fc130178908817518f5d2"},
-    {file = "solar_registry-0.3.17.tar.gz", hash = "sha256:6d59a48bcb7b854a82b68fbe37f08779417cc3ae4b81459de00a803aaf803c24"},
+    {file = "solar_registry-0.3.18-py3-none-any.whl", hash = "sha256:1883063f2f2fdb9738d81aa9adb031ccd79dbf64c14184d2dc7e38f2bac5636d"},
+    {file = "solar_registry-0.3.18.tar.gz", hash = "sha256:d7d07bdff63c559567c6f690e1821cc195b41a2695e3681614479532335af462"},
 ]
 
 [[package]]

@@ -2,10 +2,11 @@ import logging
 import os
 from enum import Enum
 from pathlib import Path
-from pydantic import BaseModel
 
 from jinja2 import Environment, FileSystemLoader
 from jinja2.nativetypes import NativeEnvironment
+
+from .scaffold_checker import ScaffoldChecker
 
 log = logging.getLogger("rich")
 
@@ -15,12 +16,6 @@ class LangType(str, Enum):
     Golang = "golang"
     Java = "java"
     Javascript = "javascript"
-
-
-class LeftToDos(BaseModel):
-    file: Path
-    line: int
-    content: str
 
 
 class ScaffoldGenerator:
@@ -62,37 +57,5 @@ class ScaffoldGenerator:
 
         logging.info(f"✅ Generated {language_name} scaffold done.")
 
-        self.show_todos(Path(self.workdir))
-
-    def show_todos(self, workdir: Path) -> None:
-        """
-        检查文件中的TODO，并输出到控制台提示用户还有多少个需要
-        :param workdir: 工具目录
-        """
-        results: list[LeftToDos] = []
-        for dirpath, dirnames, filenames in os.walk(workdir):
-            dirnames[:] = [d for d in dirnames if not d.startswith('.')]
-
-            # 检查filenames里面有没有TODO
-            for filename in filenames:
-                file_to_check = Path(dirpath) / filename
-                results.extend(self.get_todos(file_to_check))
-
-        if results:
-            log.warning(f"You still have {len(results)} TODOs.Please fix these todos below:")
-            for result in results:
-                log.warning(f"  {result.file}:{result.line}:\t\t{result.content}")
-
-    def get_todos(self, file_to_check: Path) -> list[LeftToDos]:
-        if file_to_check.name.startswith("."):
-            return []
-
-        results: list[LeftToDos] = []
-        try:
-            content = file_to_check.read_text(encoding="utf-8")
-            for i, line_content in enumerate(content.splitlines()):
-                if "TODO" in line_content:
-                    results.append(LeftToDos(file=file_to_check, line=i + 1, content=line_content))
-            return results
-        except Exception as e:
-            return []
+        checker = ScaffoldChecker(workdir=Path(self.workdir))
+        checker.check_test_tool()
