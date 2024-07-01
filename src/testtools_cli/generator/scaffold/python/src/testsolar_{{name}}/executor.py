@@ -38,7 +38,7 @@ def run_single_case(case: TestCase, reporter: Reporter) -> None:
     )
     reporter.report_case_result(tr)
 
-    sleep(5)
+    sleep(1)
     step_logs: List[TestCaseLog] = [
         TestCaseLog(Time=datetime.now(), Level=LogLevel.INFO, Content="Test Output")
     ]
