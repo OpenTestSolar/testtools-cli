@@ -1,6 +1,7 @@
 import logging
 import os
 from pathlib import Path
+from typing import Optional
 
 from pydantic import BaseModel
 
@@ -16,7 +17,7 @@ class LeftToDos(BaseModel):
 
 
 class ScaffoldChecker:
-    def __init__(self, workdir: Path | None = None):
+    def __init__(self, workdir: Optional[Path] = None):
         self.workdir = workdir or Path.cwd()
 
     def check_test_tool(self) -> None:
