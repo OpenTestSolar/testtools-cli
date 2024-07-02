@@ -55,7 +55,7 @@ class ScaffoldChecker:
         try:
             content = file_to_check.read_text(encoding="utf-8")
             for i, line_content in enumerate(content.splitlines()):
-                if "TODO" in line_content:
+                if "__TODO__" in line_content:
                     results.append(LeftToDos(file=file_to_check, line=i + 1, content=line_content))
             return results
         except Exception:

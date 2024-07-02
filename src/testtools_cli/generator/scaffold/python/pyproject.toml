@@ -1,9 +1,9 @@
 [project]
 name = "{{ name }}"
 version = "0.1.0"
-description = "TODO"
+description = "__TODO__"
 authors = [
-    {name = "TODO", email = "TODO"},
+    {name = "__TODO__", email = "__TODO__"},
 ]
 dependencies = [
     "testsolar-testtool-sdk>=0.2.1",

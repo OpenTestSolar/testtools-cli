@@ -16,14 +16,14 @@ parameterDefs:
 entry:
   load: "python3 /testtools/{{name}}/src/load.py $1"
   run: "python3 /testtools/{{name}}/src/run.py $1"
-homePage: TODO
+homePage: __TODO__
 versionFile: https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/python/{{name}}/metadata.json
 indexFile: https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/stable.index.json
-scaffoldRepo: TODO
+scaffoldRepo: __TODO__
 supportOS:
   - linux
 supportArch:
   - amd64
   - arm64
-gitPkgUrl: TODO
+gitPkgUrl: __TODO__
 certified: false
