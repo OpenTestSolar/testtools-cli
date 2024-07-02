@@ -2,6 +2,7 @@ import logging
 import os
 from enum import Enum
 from pathlib import Path
+from typing import Optional
 
 from jinja2 import Environment, FileSystemLoader
 from jinja2.nativetypes import NativeEnvironment
@@ -19,7 +20,7 @@ class LangType(str, Enum):
 
 
 class ScaffoldGenerator:
-    def __init__(self, lang: LangType, testtool_name: str, workdir: str | None) -> None:
+    def __init__(self, lang: LangType, testtool_name: str, workdir: Optional[str]) -> None:
         self.lang = lang
         self.testtool_name = testtool_name
         self.workdir = workdir or os.getcwd()

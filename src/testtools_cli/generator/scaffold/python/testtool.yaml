@@ -26,4 +26,5 @@ supportArch:
   - amd64
   - arm64
 gitPkgUrl: __TODO__
+httpPkgUrl: __TODO__
 certified: false
