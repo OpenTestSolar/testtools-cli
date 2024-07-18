@@ -6,7 +6,7 @@ authors = [
     {name = "__TODO__", email = "__TODO__"},
 ]
 dependencies = [
-    "testsolar-testtool-sdk>=0.2.1",
+    "testsolar-testtool-sdk>=0.4.0",
     "pydantic>=2.7.4",
     "loguru>=0.7.2",
 ]

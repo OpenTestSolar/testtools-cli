@@ -1,16 +1,14 @@
 import time
-from typing import Optional, BinaryIO
+from pathlib import Path
 
 from loguru import logger
 from testsolar_testtool_sdk.model.load import LoadResult, LoadError
 from testsolar_testtool_sdk.model.param import EntryParam
 from testsolar_testtool_sdk.model.test import TestCase
-from testsolar_testtool_sdk.reporter import Reporter
+from testsolar_testtool_sdk.reporter import FileReporter
 
 
-def collect_testcases(
-    entry_param: EntryParam, pipe_io: Optional[BinaryIO] = None
-) -> None:
+def collect_testcases(entry_param: EntryParam) -> None:
     logger.info(f"loading testcase from workdir [{entry_param.ProjectPath}]")
     load_result: LoadResult = LoadResult(
         Tests=[],
@@ -24,5 +22,5 @@ def collect_testcases(
         LoadError(name="load xxx.py failed", message="backtrace here")
     )
 
-    reporter = Reporter(pipe_io=pipe_io)
+    reporter = FileReporter(report_path=Path(entry_param.FileReportPath))
     reporter.report_load_result(load_result)

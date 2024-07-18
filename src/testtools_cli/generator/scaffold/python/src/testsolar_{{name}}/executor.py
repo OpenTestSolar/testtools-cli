@@ -1,6 +1,7 @@
 from datetime import datetime
+from pathlib import Path
 from time import sleep
-from typing import Optional, BinaryIO, List
+from typing import List
 
 from loguru import logger
 from testsolar_testtool_sdk.model.param import EntryParam
@@ -12,11 +13,11 @@ from testsolar_testtool_sdk.model.testresult import (
     TestCaseLog,
     LogLevel,
 )
-from testsolar_testtool_sdk.reporter import Reporter
+from testsolar_testtool_sdk.reporter import FileReporter
 
 
-def run_testcases(entry: EntryParam, pipe_io: Optional[BinaryIO] = None) -> None:
-    reporter = Reporter(pipe_io)
+def run_testcases(entry: EntryParam) -> None:
+    reporter = FileReporter(Path(entry.FileReportPath))
 
     logger.info(f"running testcase in workdir [{entry.ProjectPath}]")
 
@@ -26,7 +27,7 @@ def run_testcases(entry: EntryParam, pipe_io: Optional[BinaryIO] = None) -> None
         run_single_case(case, reporter)
 
 
-def run_single_case(case: TestCase, reporter: Reporter) -> None:
+def run_single_case(case: TestCase, reporter: FileReporter) -> None:
     logger.info(f"Running case {case.Name}")
 
     start_time = datetime.now()
