@@ -1,6 +1,6 @@
-#! /bin/bash
+#!/usr/bin/env sh
 
-set -exu -o pipefail
+set -exu
 
 TOOL_ROOT=$(realpath "$0" | xargs dirname | xargs dirname | xargs dirname)
 echo "${TOOL_ROOT}"
