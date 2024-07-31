@@ -27,4 +27,5 @@ supportArch:
   - arm64
 gitPkgUrl: __TODO__
 httpPkgUrl: __TODO__
+repository: __TODO__
 certified: false
