@@ -38,5 +38,5 @@ jobs:
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
       - name: Run checks
         run: |
-          cd src/testtools_cli/generator/
+          cd src/testtools_cli/generator/scaffold/
           uvx solar-registry validate python
