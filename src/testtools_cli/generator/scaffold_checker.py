@@ -35,7 +35,7 @@ class ScaffoldChecker:
     def show_todos(self) -> None:
         results: list[LeftToDos] = []
         for dirpath, dirnames, filenames in os.walk(self.workdir):
-            dirnames[:] = [d for d in dirnames if not d.startswith('.')]
+            dirnames[:] = [d for d in dirnames if not d.startswith(".")]
 
             # 检查filenames里面有没有TODO
             for filename in filenames:
@@ -43,7 +43,9 @@ class ScaffoldChecker:
                 results.extend(self._get_todos(file_to_check))
 
         if results:
-            log.warning(f"You still have {len(results)} TODOs.Please fix these todos below:")
+            log.warning(
+                f"You still have {len(results)} TODOs.Please fix these todos below:"
+            )
             for result in results:
                 log.warning(f"  {result.file}:{result.line}:\t\t{result.content}")
 
@@ -57,7 +59,9 @@ class ScaffoldChecker:
             content = file_to_check.read_text(encoding="utf-8")
             for i, line_content in enumerate(content.splitlines()):
                 if "__TODO__" in line_content:
-                    results.append(LeftToDos(file=file_to_check, line=i + 1, content=line_content))
+                    results.append(
+                        LeftToDos(file=file_to_check, line=i + 1, content=line_content)
+                    )
             return results
         except Exception:
             return []

@@ -26,13 +26,13 @@ log = logging.getLogger("rich")
 
 @app.command()
 def init(
-        workdir: Annotated[
-            Optional[str],
-            typer.Option(
-                help="Where you want the scaffolding code to be stored, defaulting to the current directory"
-            ),
-        ] = None,
-        verbose: Annotated[Optional[bool], typer.Option(help="Verbose output")] = False,
+    workdir: Annotated[
+        Optional[str],
+        typer.Option(
+            help="Where you want the scaffolding code to be stored, defaulting to the current directory"
+        ),
+    ] = None,
+    verbose: Annotated[Optional[bool], typer.Option(help="Verbose output")] = False,
 ) -> None:
     """
     **Init** a testsolar testtool with guide
@@ -52,11 +52,15 @@ def init(
         logger.remove()
         logger.add(sys.stdout, level="INFO")
 
+
     tool_name = typer.prompt("Name of the test tool?")
+
     pre_langs = "/".join([e.value for e in LangType])
     lang = LangType(
         typer.prompt(f"The language you want to use for development({pre_langs})?")
     )
+
+    assert tool_name
 
     gen = ScaffoldGenerator(lang=lang, testtool_name=tool_name, workdir=workdir)
     gen.generate()
@@ -64,13 +68,13 @@ def init(
 
 @app.command()
 def check(
-        workdir: Annotated[
-            Optional[str],
-            typer.Option(
-                help="The test tool dir to check, defaulting to the current directory"
-            ),
-        ] = None,
-        verbose: Annotated[Optional[bool], typer.Option(help="Verbose output")] = False,
+    workdir: Annotated[
+        Optional[str],
+        typer.Option(
+            help="The test tool dir to check, defaulting to the current directory"
+        ),
+    ] = None,
+    verbose: Annotated[Optional[bool], typer.Option(help="Verbose output")] = False,
 ) -> None:
     """
     **Check** if the testing tools are effective
