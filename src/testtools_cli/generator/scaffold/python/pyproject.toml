@@ -1,5 +1,5 @@
 [project]
-name = "{{ name }}"
+name = "{{name}}"
 version = "0.1.0"
 description = "__TODO__"
 authors = [
@@ -14,15 +14,11 @@ requires-python = ">=3.9"
 readme = "README.md"
 license = {text = "MIT"}
 
-
-[tool.pdm]
-distribution = false
-
-[tool.pdm.dev-dependencies]
-dev = [
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.2",
     "pytest-cov>=5.0.0",
-    "pytest>=8.2.2",
-    "ruff>=0.4.10",
-    "mypy>=1.10.0",
-    "setuptools>=70.1.0",
+    "ruff>=0.6.3",
+    "mypy>=1.11.2",
+    "setuptools>=74.1.0",
 ]

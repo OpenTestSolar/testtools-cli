@@ -2,7 +2,11 @@
 
 set -exu -o pipefail
 
-pdm install
-pdm run ruff check src
-pdm run mypy src --strict
-pdm run pytest tests --durations=5 --cov=. --cov-fail-under=85 --cov-report term
+uv sync --all-extras --dev
+uv run ruff format src
+uv run ruff format tests
+uv run ruff check src
+uv run ruff check tests
+uv run mypy src --strict
+uv run pytest tests --durations=5 --cov=. --cov-fail-under=90 --cov-report term
+uv export --no-dev --locked >requirements.txt
