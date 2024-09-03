@@ -26,13 +26,13 @@ log = logging.getLogger("rich")
 
 @app.command()
 def init(
-        workdir: Annotated[
-            Optional[str],
-            typer.Option(
-                help="Where you want the scaffolding code to be stored, defaulting to the current directory"
-            ),
-        ] = None,
-        verbose: Annotated[Optional[bool], typer.Option(help="Verbose output")] = False,
+    workdir: Annotated[
+        Optional[str],
+        typer.Option(
+            help="Where you want the scaffolding code to be stored, defaulting to the current directory"
+        ),
+    ] = None,
+    verbose: Annotated[Optional[bool], typer.Option(help="Verbose output")] = False,
 ) -> None:
     """
     **Init** a testsolar testtool with guide
@@ -64,13 +64,13 @@ def init(
 
 @app.command()
 def check(
-        workdir: Annotated[
-            Optional[str],
-            typer.Option(
-                help="The test tool dir to check, defaulting to the current directory"
-            ),
-        ] = None,
-        verbose: Annotated[Optional[bool], typer.Option(help="Verbose output")] = False,
+    workdir: Annotated[
+        Optional[str],
+        typer.Option(
+            help="The test tool dir to check, defaulting to the current directory"
+        ),
+    ] = None,
+    verbose: Annotated[Optional[bool], typer.Option(help="Verbose output")] = False,
 ) -> None:
     """
     **Check** if the testing tools are effective

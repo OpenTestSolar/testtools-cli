@@ -20,7 +20,9 @@ class LangType(str, Enum):
 
 
 class ScaffoldGenerator:
-    def __init__(self, lang: LangType, testtool_name: str, workdir: Optional[str]) -> None:
+    def __init__(
+        self, lang: LangType, testtool_name: str, workdir: Optional[str]
+    ) -> None:
         self.lang = lang
         self.testtool_name = testtool_name
         self.workdir = workdir or os.getcwd()
@@ -36,7 +38,7 @@ class ScaffoldGenerator:
 
         for dirpath, dirnames, filenames in os.walk(scaffold_dir):
             # 计算模板文件的相对目录
-            dirnames[:] = [d for d in dirnames if not d.startswith('.')]
+            dirnames[:] = [d for d in dirnames if not d.startswith(".")]
             relative_dir = os.path.relpath(dirpath, scaffold_dir)
 
             # dirnames是目录，不用管
@@ -47,7 +49,9 @@ class ScaffoldGenerator:
                 relative_file = Path(relative_dir) / filename
 
                 path_template = self.native_env.from_string(str(relative_file))
-                dest_path = Path(self.workdir) / path_template.render(name=self.testtool_name)
+                dest_path = Path(self.workdir) / path_template.render(
+                    name=self.testtool_name
+                )
 
                 Path(dest_path).parent.mkdir(parents=True, exist_ok=True)
 
