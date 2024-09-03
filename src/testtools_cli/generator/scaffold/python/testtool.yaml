@@ -18,7 +18,7 @@ entry:
   run: "python3 /testtools/{{name}}/src/run.py $1"
 homePage: __TODO__
 versionFile: "https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/python/{{name}}/metadata.json"
-indexFile: https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/stable.index.json
+indexFile: "https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/stable.index.json"
 scaffoldRepo: __TODO__
 supportOS:
   - linux

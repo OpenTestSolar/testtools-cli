@@ -26,6 +26,8 @@ log = logging.getLogger("rich")
 
 @app.command()
 def init(
+    lang: Annotated[Optional[LangType], typer.Option(help="language")],
+    tool_name: Annotated[Optional[str], typer.Option(help="tool name")],
     workdir: Annotated[
         Optional[str],
         typer.Option(
@@ -52,11 +54,15 @@ def init(
         logger.remove()
         logger.add(sys.stdout, level="INFO")
 
-    tool_name = typer.prompt("Name of the test tool?")
-    pre_langs = "/".join([e.value for e in LangType])
-    lang = LangType(
-        typer.prompt(f"The language you want to use for development({pre_langs})?")
-    )
+    if not tool_name:
+        tool_name = typer.prompt("Name of the test tool?")
+    if not lang:
+        pre_langs = "/".join([e.value for e in LangType])
+        lang = LangType(
+            typer.prompt(f"The language you want to use for development({pre_langs})?")
+        )
+
+    assert tool_name
 
     gen = ScaffoldGenerator(lang=lang, testtool_name=tool_name, workdir=workdir)
     gen.generate()
