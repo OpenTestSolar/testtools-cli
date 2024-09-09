@@ -10,7 +10,7 @@ parent = str(Path(__file__).parent.resolve())
 if parent not in sys.path:
     sys.path.append(parent)
 
-from testsolar_{{name}}.executor import run_testcases  # type: ignore  # noqa: E402
+from testsolar___replace_me__.executor import run_testcases  # type: ignore  # noqa: E402
 
 
 def run_testcases_from_args(args: List[str],
