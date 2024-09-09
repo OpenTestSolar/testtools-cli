@@ -7,7 +7,7 @@ if [[ -z "${GITHUB_ACTIONS+x}" ]]; then
   uv sync --all-extras --dev
   uv run ruff format src
   uv run ruff format tests
-  uv run ruff check src
+  uv run ruff check src --fix
   uv run mypy src --strict
   uv run pytest tests --durations=5 --cov=. --cov-report term
 else
