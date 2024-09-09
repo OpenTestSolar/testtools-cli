@@ -10,4 +10,4 @@ class TemplateGenerator:
             return self.render_template(f.read())
 
     def render_template(self, template_string: str) -> str:
-        return template_string.replace("__replace_me__", self.tool_name)
+        return template_string.replace("replace_____me", self.tool_name)

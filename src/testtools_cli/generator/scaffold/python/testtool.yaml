@@ -1,7 +1,7 @@
 schemaVersion: 1.0
-name: "__replace_me__"
-nameZh: "__replace_me__测试工具"
-description: "__replace_me__自动化测试工具"
+name: "replace_____me"
+nameZh: "replace_____me测试工具"
+description: "replace_____me自动化测试工具"
 version: 0.1.0
 lang: python
 defaultBaseImage: mirrors.tencent.com/testsolar-base/python:3.9
@@ -14,10 +14,10 @@ parameterDefs:
     lang: bash
     inputWidget: code
 entry:
-  load: "python3 /testtools/__replace_me__/src/load.py $1"
-  run: "python3 /testtools/__replace_me__/src/run.py $1"
+  load: "python3 /testtools/replace_____me/src/load.py $1"
+  run: "python3 /testtools/replace_____me/src/run.py $1"
 homePage: __TODO__
-versionFile: "https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/python/__replace_me__/metadata.json"
+versionFile: "https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/python/replace_____me/metadata.json"
 indexFile: "https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/stable.index.json"
 scaffoldRepo: __TODO__
 supportOS:
