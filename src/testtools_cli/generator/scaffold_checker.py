@@ -48,8 +48,11 @@ class ScaffoldChecker:
             )
             for result in results:
                 log.warning(f"  {result.file}:{result.line}:\t\t{result.content}")
+        else:
+            log.info(f"✅ No Problem found.")
 
-    def _get_todos(self, file_to_check: Path) -> list[LeftToDos]:
+    @staticmethod
+    def _get_todos(file_to_check: Path) -> list[LeftToDos]:
         if file_to_check.name.startswith("."):
             return []
 
