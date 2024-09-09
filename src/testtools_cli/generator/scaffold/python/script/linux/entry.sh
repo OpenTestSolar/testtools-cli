@@ -31,10 +31,10 @@ export PYTHONUNBUFFERED=1
 case "$command" in
 load)
   echo "Loading testcase with entry file : $file_path"
-  python3 /testtools/{{name}}/src/load.py "$file_path"
+  python3 /testtools/__replace_me__/src/load.py "$file_path"
   ;;
 run)
   echo "Running testcase with entry file: $file_path"
-  python3 /testtools/{{name}}/src/run.py "$file_path"
+  python3 /testtools/__replace_me__/src/run.py "$file_path"
   ;;
 esac

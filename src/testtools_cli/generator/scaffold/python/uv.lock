@@ -6,7 +6,7 @@ resolution-markers = [
 ]
 
 [[package]]
-name = "{{name}}"
+name = "__replace_me__"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

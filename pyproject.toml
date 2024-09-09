@@ -20,7 +20,6 @@ dependencies = [
     "typer>=0.12.3",
     "rich>=13.7.1",
     "solar-registry>=0.3.27",
-    "jinja2>=3.1.4",
 ]
 requires-python = ">=3.9"
 readme = "README.md"

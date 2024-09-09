@@ -1,5 +1,5 @@
 [project]
-name = "{{name}}"
+name = "__replace_me__"
 version = "0.1.0"
 description = "__TODO__"
 authors = [

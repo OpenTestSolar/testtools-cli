@@ -4,10 +4,8 @@ from enum import Enum
 from pathlib import Path
 from typing import Optional
 
-from jinja2 import Environment, FileSystemLoader
-from jinja2.nativetypes import NativeEnvironment
-
 from .scaffold_checker import ScaffoldChecker
+from .template_generator import TemplateGenerator
 
 log = logging.getLogger("rich")
 
@@ -21,12 +19,11 @@ class LangType(str, Enum):
 
 class ScaffoldGenerator:
     def __init__(
-        self, lang: LangType, testtool_name: str, workdir: Optional[str]
+            self, lang: LangType, testtool_name: str, workdir: Optional[str]
     ) -> None:
         self.lang = lang
         self.testtool_name = testtool_name
         self.workdir = workdir or os.getcwd()
-        self.native_env = NativeEnvironment()
 
     def generate(self) -> None:
         if self.lang == LangType.Python:
@@ -34,7 +31,7 @@ class ScaffoldGenerator:
 
     def generate_scaffold(self, language_name: str) -> None:
         scaffold_dir = Path(__file__).parent / "scaffold" / language_name
-        env = Environment(loader=FileSystemLoader(scaffold_dir))
+        gen = TemplateGenerator(tool_name=self.testtool_name)
 
         for dirpath, dirnames, filenames in os.walk(scaffold_dir):
             # 计算模板文件的相对目录
@@ -48,10 +45,7 @@ class ScaffoldGenerator:
                     continue
                 relative_file = Path(relative_dir) / filename
 
-                path_template = self.native_env.from_string(str(relative_file))
-                dest_path = Path(self.workdir) / path_template.render(
-                    name=self.testtool_name
-                )
+                dest_path = Path(self.workdir) / gen.render_template(str(relative_file))
 
                 Path(dest_path).parent.mkdir(parents=True, exist_ok=True)
 
@@ -59,8 +53,7 @@ class ScaffoldGenerator:
                 with open(dest_path, "w", encoding="utf-8") as file_out:
                     log.debug(f"  From template file [{relative_file}]")
                     log.debug(f"  Into dest file [{dest_path}]")
-                    template = env.get_template(str(relative_file))
-                    content = template.render(name=self.testtool_name)
+                    content = gen.render_template_path(Path(dirpath) / filename)
                     file_out.write(content)
 
         logging.info(f"✅ Generated {language_name} scaffold done.")
