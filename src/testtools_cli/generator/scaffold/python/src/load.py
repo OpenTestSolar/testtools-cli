@@ -13,7 +13,9 @@ if parent not in sys.path:
 from testsolar_{{name}}.collector import collect_testcases  # type: ignore  # noqa: E402
 
 
-def collect_testcases_from_args(args: List[str], workspace: Optional[str] = None) -> None:
+def collect_testcases_from_args(args: List[str],
+                                workspace: Optional[str] = None,
+                                file_report_path: Optional[str] = None,) -> None:
     if len(args) != 2:
         raise SystemExit("Usage: python load.py <entry_file>")
 
@@ -23,6 +25,8 @@ def collect_testcases_from_args(args: List[str], workspace: Optional[str] = None
         entry = from_dict(data_class=EntryParam, data=json.loads(f.read()))
         if workspace:
             entry.ProjectPath = workspace
+        if file_report_path:
+            entry.FileReportPath = file_report_path
         collect_testcases(entry_param=entry)
 
 
