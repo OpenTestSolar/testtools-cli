@@ -4,7 +4,7 @@ from pathlib import Path
 from src.load import collect_testcases_from_args
 from testsolar_testtool_sdk.file_reader import read_file_load_result
 
-testdata_dir: Path = Path(__file__).parent.absolute().joinpath("test_data")
+testdata_dir: Path = Path(__file__).parent.absolute().joinpath("testdata")
 
 
 def test_collect_testcases_from_args():

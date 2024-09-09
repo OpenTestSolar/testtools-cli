@@ -19,18 +19,7 @@ def test_run_testcases_from_args():
 
         re = read_file_test_result(
             report_path=Path(tmpdir),
-            case=TestCase(Name="com/example/tests/ExampleTest?testSuccess")
-        )
-
-        assert re.Test.Name == "a/b/c?d"
-        assert re.ResultType == ResultType.RUNNING
-        assert len(re.Steps) == 0
-        assert re.StartTime
-        assert not re.EndTime
-
-        re = read_file_test_result(
-            report_path=Path(tmpdir),
-            case=TestCase(Name="com/example/tests/ExampleTest?testSuccess")
+            case=TestCase(Name="a/b/c?d"),
         )
         assert re.Test.Name == "a/b/c?d"
         assert re.ResultType == ResultType.SUCCEED
