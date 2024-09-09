@@ -52,7 +52,6 @@ def init(
         logger.remove()
         logger.add(sys.stdout, level="INFO")
 
-
     tool_name = typer.prompt("Name of the test tool?")
 
     pre_langs = "/".join([e.value for e in LangType])
