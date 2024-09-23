@@ -19,7 +19,7 @@ class LangType(str, Enum):
 
 class ScaffoldGenerator:
     def __init__(
-            self, lang: LangType, testtool_name: str, workdir: Optional[str]
+        self, lang: LangType, testtool_name: str, workdir: Optional[str]
     ) -> None:
         self.lang = lang
         self.testtool_name = testtool_name
@@ -28,6 +28,8 @@ class ScaffoldGenerator:
     def generate(self) -> None:
         if self.lang == LangType.Python:
             self.generate_scaffold(language_name=LangType.Python.value)
+        if self.lang == LangType.Golang:
+            self.generate_scaffold(language_name=LangType.Golang.value)
 
     def generate_scaffold(self, language_name: str) -> None:
         scaffold_dir = Path(__file__).parent / "scaffold" / language_name

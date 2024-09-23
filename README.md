@@ -14,6 +14,7 @@ pip install testtools-cli
 在指定目录(默认当前目录)创建测试工具脚手架内容,当前支持语言：
 
 - python
+- golang
 
 使用例子：
 
