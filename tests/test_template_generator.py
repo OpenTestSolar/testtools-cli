@@ -6,7 +6,7 @@ def test_render_template_with_custom_tag():
     ret = gen.render_template(
         """
         [[package]]                                                                                                                                                                                                               │
-        name = "__replace_me__"
+        name = "replace_____me"
         """.strip()
     )
 
