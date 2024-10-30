@@ -4,6 +4,8 @@ import (
 	"replace_____me/pkg/testcase"
 	"replace_____me/pkg/util"
 
+	"time"
+
 	"github.com/OpenTestSolar/testtool-sdk-golang/client"
 	"github.com/OpenTestSolar/testtool-sdk-golang/model"
 	"github.com/pkg/errors"
@@ -60,18 +62,33 @@ func reportTestcases(fileReportPath string, testcases []*testcase.TestCase, load
 func (o *DiscoverOptions) RunDiscover(cmd *cobra.Command) error {
 	var testcases []*testcase.TestCase
 	var loadErrors []*model.LoadError
-
-	// config.ProjectPath: test case repository root directory
-	// config.TestSelectors: list of test cases expected to be loaded
-	// config.TaskId: the identifier of this task
 	config, err := util.UnmarshalCaseInfo(o.discoverPath)
 	if err != nil {
 		return errors.Wrapf(err, "failed to unmarshal case info")
 	}
-	// TODO: load test cases based on configuration information `config`
-	// Test cases for both successful and failed loads are returned in the form of slices
-	// represented by testcase.TestCase and model.LoadError, respectively
+	// 1. __TODO__: load test cases based on `config`
+	// The following are the parameters that need attention:
+	//   config.TestSelectors: expected list of test cases to load, possibly with multiple inputs
+	//   example:
+	//     - tests                                 // expected test case directory to be loaded
+	//     - tests/test_hello.py                   // expected test case file to be loaded
+	//     - tests/test_hello.py?name=MathTest     // expected test case to be loaded
+	//     - tests/test_hello.py?MathTest/test_add // equivalent to the previous example, the 'name' parameter can be omitted
+	//   config.ProjectPath: test cases root directory, example: /data/workspace
+	//   config.TaskId: task id, as the unique identifier for this task, example: task-xxx
+	//   config.FileReportPath: local test case result save file path, example: /data/report
+	time.Sleep(1)
 
+	// 2. __TODO__: after loading the test cases, report the results.
+	// successfully loaded test cases can be added to load_result.Tests
+	// and failed test cases can be added to load_result.LoadErrors
+	// testcase.TestCase: single test case
+	//      Path: test case path, example: tests/test_hello.py
+	// 		Name: test case name, example: MathTest
+	//      Attributes: test case attributes, represented in key-value pair form
+	// model.LoadError
+	//      name: load error name, example: tests/test_hello.py or tests/test_hello.py?LoadErrorTest
+	//      message: load error message
 	err = reportTestcases(config.FileReportPath, testcases, loadErrors)
 	if err != nil {
 		return errors.Wrapf(err, "failed to report testcases")
