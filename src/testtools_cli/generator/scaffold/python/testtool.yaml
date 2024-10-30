@@ -16,16 +16,16 @@ parameterDefs:
 entry:
   load: "python3 /testtools/replace_____me/src/load.py $1"
   run: "python3 /testtools/replace_____me/src/run.py $1"
-homePage: __TODO__
+homePage: __RECOMMANDTODO__
 versionFile: "https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/python/replace_____me/metadata.json"
 indexFile: "https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/stable.index.json"
-scaffoldRepo: __TODO__
+scaffoldRepo: __RECOMMANDTODO__
 supportOS:
   - linux
 supportArch:
   - amd64
   - arm64
-gitPkgUrl: __TODO__
-httpPkgUrl: __TODO__
-repository: __TODO__
+gitPkgUrl: __RECOMMANDTODO__
+httpPkgUrl: __RECOMMANDTODO__
+repository: __RECOMMANDTODO__
 certified: false

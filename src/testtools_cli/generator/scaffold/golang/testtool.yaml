@@ -6,10 +6,10 @@ langType: COMPILED
 version: 0.1.0
 description: "replace_____me自动化测试工具"
 defaultBaseImage: golang:1.22
-scaffoldRepo: __TODO__
+scaffoldRepo: __RECOMMANDTODO__
 indexFile: https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/stable.index.json
 versionFile: https://testsolar-1321258242.cos.ap-guangzhou.myqcloud.com/testtools/golang/replace_____me/metadata.json
-homePage: __TODO__
+homePage: __RECOMMANDTODO__
 parameterDefs:
   - name: sample_param
     value: 参数例子
@@ -22,9 +22,9 @@ supportOS:
 supportArch:
   - amd64
   - arm64
-repository: __TODO__
-gitPkgUrl: __TODO__
-httpPkgUrl: __TODO__
+repository: __RECOMMANDTODO__
+gitPkgUrl: __RECOMMANDTODO__
+httpPkgUrl: __RECOMMANDTODO__
 entry:
   load: "solar-replace_____me discover -p $1"
   run: "solar-replace_____me execute -p $1"
