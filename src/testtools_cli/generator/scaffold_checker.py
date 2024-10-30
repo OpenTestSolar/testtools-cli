@@ -50,7 +50,7 @@ class ScaffoldChecker:
                 f"You still have {len(todos)} TODOs.Please fix these todos below:"
             )
             for todo in todos:
-                log.warning(f"  {todo.file}:{todo.line}:\t\t{todo.content}")
+                log.error(f"  {todo.file}:{todo.line}:\t\t{todo.content}")
         if recommand_todos:
             log.warning(
                 f"You still have {len(recommand_todos)} RECOMMANDED TODOs.We suggest you fix these todos below:"
