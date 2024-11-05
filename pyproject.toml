@@ -20,6 +20,8 @@ dependencies = [
     "typer>=0.12.3",
     "rich>=13.7.1",
     "solar-registry>=0.3.27",
+    "urllib3==1.26.6",
+    "pydantic-settings>=2.6.1",
 ]
 requires-python = ">=3.9"
 readme = "README.md"
@@ -41,6 +43,8 @@ dev-dependencies = [
     "pytest-cov>=5.0.0",
     "pytest>=8.3.2",
     "ruff>=0.6.3",
+    "types-pyyaml>=6.0.12.20240917",
+    "types-requests>=2.31.0.6",
 ]
 
 [tool.ruff]

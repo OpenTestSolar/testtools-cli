@@ -1,7 +1,6 @@
-#!/bin/bash
+#! /bin/bash
 
-# 启用严格模式
-set -exu
+set -exu -o pipefail
 
 # 检查参数数量
 if [ "$#" -ne 2 ]; then
