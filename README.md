@@ -9,6 +9,12 @@ pip install testtools-cli
 
 ## 如何使用
 
+### 💾testtools-cli install
+
+安装工具开发依赖的相关组件，目前包括:
+
+- solarctl
+
 ### ✨testtools-cli init
 
 在指定目录(默认当前目录)创建测试工具脚手架内容,当前支持语言：
@@ -39,6 +45,18 @@ testtools-cli init --workdir /tmp/jagma
 - \_\_RECOMMANDTODO\_\_: 建议实现的部分
 
 > 建议实现的部分主要为工具的元数据信息，包括homePage（工具主页）、repository（工具源码地址）、gitPkgUrl以及httpPkgUrl（工具压缩包地址）等
+
+### 🐞testtools-cli debug
+
+执行`加载用例`及`执行用例`并输出工具日志，命令支持参数如下所示:
+
+- `--case-root`指定用例库根目录，若不传入则默认为当前目录
+
+- `--target`指定加载/执行的用例范围，支持传入多个执行目标，若不传入则默认执行用例库下所有用例。
+
+- `--tool`指定开发的工具所在目录，若不传入则默认为当前目录
+
+- `--commands`指定构建 TestContainer 时执行的自定义命令，适用于用例执行过程中需要安装额外依赖的场景，支持传入多个命令
 
 ## 开发说明
 
