@@ -24,3 +24,9 @@ def execute_command_in_directory(
         cwd=directory,
     )
     return result.returncode
+
+
+def get_absolute_path(path: str) -> str:
+    if os.path.isabs(path):
+        return path
+    return os.path.join(os.getcwd(), path)

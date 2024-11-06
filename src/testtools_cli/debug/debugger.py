@@ -2,7 +2,7 @@ import os
 import yaml
 import shutil
 from .model import Build, TestContainer, TestTool
-from .util import execute_command_in_directory
+from .util import execute_command_in_directory, get_absolute_path
 
 SOLARCTL_RUN = ["solarctl", "run", "--debug", "--root", "--remove", "-c"]
 
@@ -11,8 +11,8 @@ class TestToolDebugger:
     def __init__(
         self, root: str, tool_path: str, target: list[str], commands: list[str] = []
     ):
-        self._root = root
-        self._tool_path = tool_path
+        self._root = get_absolute_path(root)
+        self._tool_path = get_absolute_path(tool_path)
         self._target = target
         self._cmd = commands
 
