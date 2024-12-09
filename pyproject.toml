@@ -1,6 +1,6 @@
 [project]
 name = "testtools-cli"
-version = "0.2.16"
+version = "0.2.17"
 description = "TestSolar TestTool CLI"
 authors = [
     { name = "asiazhang", email = "asiazhang2002@gmail.com" },

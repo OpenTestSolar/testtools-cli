@@ -13,8 +13,6 @@ log = logging.getLogger("rich")
 class LangType(str, Enum):
     Python = "python"
     Golang = "golang"
-    Java = "java"
-    Javascript = "javascript"
 
 
 class ScaffoldGenerator:

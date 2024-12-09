@@ -45,10 +45,6 @@ def init(
     - python
 
     - golang
-
-    - javascript
-
-    - java
     """
     if verbose:
         log.setLevel(logging.DEBUG)
