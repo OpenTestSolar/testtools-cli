@@ -18,4 +18,4 @@ Write-Output $env:TESTSOLAR_WORKSPACE
 
 # 调用外部命令
 & "/usr/local/bin/testtools_sdk" version
-& "/usr/local/bin/testtools_sdk" serve --tool ___name___
+& "/usr/local/bin/testtools_sdk" serve --tool replace_____me
