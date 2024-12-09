@@ -40,17 +40,17 @@ def run_single_case(case: TestCase, reporter: FileReporter) -> None:
     reporter.report_case_result(tr)
     # 2. __TODO__: execute test cases based on `entry_param`
     # The following are the parameters that need attention:
-	#   entry_param.TestSelectors: expected list of test cases to execute, possibly with multiple inputs
+    #   entry_param.TestSelectors: expected list of test cases to execute, possibly with multiple inputs
     #   example:
     #     - tests                                 // expected test case directory to be executed
     #     - tests/test_hello.py                   // expected test case file to be executed
     #     - tests/test_hello.py?name=MathTest     // expected test case to be executed
     #     - tests/test_hello.py?MathTest/test_add // equivalent to the previous example, the 'name' parameter can be omitted
     #   entry_param.ProjectPath: test cases root directory, example: /data/workspace
-	#   entry_param.TaskId: task id, as the unique identifier for this task, example: task-xxx
-	#   entry_param.FileReportPath: local test case result save file path, example: /data/report
+    #   entry_param.TaskId: task id, as the unique identifier for this task, example: task-xxx
+    #   entry_param.FileReportPath: local test case result save file path, example: /data/report
     sleep(1)
-    
+
     # 3. __TODO__: After test cases had been executed, construct the test case results and report.
     # TestResult: test case execution result
     #     Test: test case name
@@ -59,16 +59,16 @@ def run_single_case(case: TestCase, reporter: FileReporter) -> None:
     #     StartTime: test case start time
     #     EndTime: test case end time
     #     ResultType: execution result of the test case
-    #     TestCaseStep: execution steps of the test case, 
-    #                   one test case result can contain multiple steps, 
+    #     TestCaseStep: execution steps of the test case,
+    #                   one test case result can contain multiple steps,
     #                   and each step can contain multiple logs
     #                   Title: step name
     #                   Steps: test case logs in current step
     #                   [
     #                       TestCaseStep: single test case log
-    #                           Time: record time   
+    #                           Time: record time
     #                           Level: log level
-    #                           Content: log content                 
+    #                           Content: log content
     #                   ]
     #                   StartTime: step start time
     #                   EndTime: step end time

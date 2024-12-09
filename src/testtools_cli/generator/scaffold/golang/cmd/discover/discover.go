@@ -77,7 +77,7 @@ func (o *DiscoverOptions) RunDiscover(cmd *cobra.Command) error {
 	//   config.ProjectPath: test cases root directory, example: /data/workspace
 	//   config.TaskId: task id, as the unique identifier for this task, example: task-xxx
 	//   config.FileReportPath: local test case result save file path, example: /data/report
-	time.Sleep(1)
+	time.Sleep(1 * time.Second)
 
 	// 2. __TODO__: after loading the test cases, report the results.
 	// successfully loaded test cases can be added to load_result.Tests
