@@ -16,21 +16,21 @@ def collect_testcases(entry_param: EntryParam) -> None:
     )
     # 1. __TODO__: load test cases based on `entry_param`
     # The following are the parameters that need attention:
-	#   entry_param.TestSelectors: expected list of test cases to load, possibly with multiple inputs
+    #   entry_param.TestSelectors: expected list of test cases to load, possibly with multiple inputs
     #   example:
     #     - tests                                 // expected test case directory to be loaded
     #     - tests/test_hello.py                   // expected test case file to be loaded
     #     - tests/test_hello.py?name=MathTest     // expected test case to be loaded
     #     - tests/test_hello.py?MathTest/test_add // equivalent to the previous example, the 'name' parameter can be omitted
     #   entry_param.ProjectPath: test cases root directory, example: /data/workspace
-	#   entry_param.TaskId: task id, as the unique identifier for this task, example: task-xxx
-	#   entry_param.FileReportPath: local test case result save file path, example: /data/report
+    #   entry_param.TaskId: task id, as the unique identifier for this task, example: task-xxx
+    #   entry_param.FileReportPath: local test case result save file path, example: /data/report
     time.sleep(1)
-    
+
     # 2. __TODO__: after loading the test cases, report the results.
     # successfully loaded test cases can be added to load_result.Tests
-	# and failed test cases can be added to load_result.LoadErrors
-    # Tests: 
+    # and failed test cases can be added to load_result.LoadErrors
+    # Tests:
     #   [
     #        TestCase: single test case
     #           Name: test case name, example: tests/test_hello.py?MathTest/test_add

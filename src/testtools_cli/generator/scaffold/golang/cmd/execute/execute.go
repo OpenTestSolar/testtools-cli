@@ -65,7 +65,7 @@ func (o *ExecuteOptions) RunExecute(cmd *cobra.Command) error {
 	//   config.ProjectPath: test cases root directory, example: /data/workspace
 	//   config.TaskId: task id, as the unique identifier for this task, example: task-xxx
 	//   config.FileReportPath: local test case result save file path, example: /data/report
-	time.Sleep(1)
+	time.Sleep(1 * time.Second)
 
 	// 2. __TODO__: After test cases had been executed, construct the test case results and report.
 	// TestResult: test case execution result
