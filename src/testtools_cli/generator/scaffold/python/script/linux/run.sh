@@ -8,4 +8,4 @@ echo "${TOOL_ROOT}"
 echo "${TESTSOLAR_WORKSPACE}"
 
 /usr/local/bin/testtools_sdk version
-/usr/local/bin/testtools_sdk serve --tool ...name... --file-report-mode
+/usr/local/bin/testtools_sdk serve --tool replace_____me --file-report-mode
