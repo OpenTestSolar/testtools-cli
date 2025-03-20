@@ -6,7 +6,7 @@ class TemplateGenerator:
         self.tool_name = tool_name
 
     def render_template_path(self, template_path: Path) -> str:
-        with template_path.open() as f:
+        with template_path.open(encoding="utf-8") as f:
             return self.render_template(f.read())
 
     def render_template(self, template_string: str) -> str:
