@@ -40,7 +40,7 @@ class TestToolDebugger:
             test_container.build = Build(commands=self._cmd)
         d = test_container.dict(by_alias=True, exclude_none=True)
         yaml_path = os.path.join(self._root, "testcontainer.yaml")
-        with open(yaml_path, "w") as f:
+        with open(yaml_path, "w", encoding="utf-8") as f:
             yaml.dump(d, f, default_flow_style=False)
         return yaml_path
 
